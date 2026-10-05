@@ -415,7 +415,8 @@ class PrivacyPlugin(BasePlugin[PrivacyConfig]):
                     "AppleWebKit/537.36 (KHTML, like Gecko)",
                     "Chrome/98.0.4758.102 Safari/537.36"
                 ])
-            })
+            }, timeout = (5, 30))
+            res.raise_for_status()
 
             # Compute expected file extension and append if missing
             mime = res.headers["content-type"].split(";")[0]
